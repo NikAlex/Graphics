@@ -1,9 +1,9 @@
 <html>
 	<head>
-		<title>PROGRAMMA DRONA</title>
+		<title>RK</title>
 	<head>
 	<body style="margin: 0">
-		<canvas id="canvas" width="860" height="640" style="border: 1px solid black"></canvas>
+		<canvas id="canvas" width="1000" height="500" style="border: 1px solid black"></canvas>
 		<script>
 			const canvas = document.getElementById("canvas")
 			const ctx = canvas.getContext("2d")
@@ -15,8 +15,7 @@
 					this.width = width
 					this.height = height
 					this.color = color
-
-					this.coeff = 0
+					this.coeff = 10
 				}
 
 				draw() {
@@ -43,7 +42,7 @@
 
 				moveX() {
 					if (this.coeff < 400) {
-						this.x += 0.5
+						this.x += 2.5
 						this.coeff += 0.5
 					}
 
@@ -55,10 +54,10 @@
 				constructor(x, y, radius, color) {
 					this.x = x
 					this.y = y
-					this.radius = radius
+					this.radius = 10
 					this.color = color
 
-					this.coeff = 0
+					this.coeff = -1000
 				}
 
 				draw() {
@@ -70,7 +69,7 @@
 						ctx.stroke()
 						ctx.beginPath()
 						ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI)
-						ctx.fillStyle = '#ffffff'
+						ctx.fillStyle = '#00ffff'
 						ctx.fill()
 						ctx.fillStyle = this.color
 					}
@@ -83,8 +82,8 @@
 				}
 
 				moveX() {
-					if (this.coeff < 400) {
-						this.x += 0.5
+					if (this.coeff < 200) {
+						this.x += 4
 						this.coeff += 0.5
 					}
 
@@ -93,10 +92,11 @@
 			}
 
 			const figures = [
-				new Rect(10, 210, 300, 150, '#00ff00'),
-				new Circle(250, 368, 30, '#aaaaaa'),
-				new Circle(65, 368, 30),
-				new Rect(520, 250, 250, 150, '#eeeeee')
+				new Rect(-10, 20, 150, 20, '#00ffff'),
+				new Rect(-20, 250, 50, 20, '#00ffff'),
+				new Circle(-30, 368, 30, '#000000'),
+				new Circle(-65, 200, 0),
+				new Rect(500, 0, 150, 550, '#700707')
 			]
 
 			function commitChaos() {
@@ -104,7 +104,8 @@
 				figures[0].moveX().draw()
 				figures[1].moveX().draw()
 				figures[2].moveX().draw()
-				figures[3].draw()
+				figures[3].moveX().draw()
+				figures[4].draw()
 			}
 
 			function startAnimation() {
