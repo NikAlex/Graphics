@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>RK</title>
+		<title>Rain</title>
 	<head>
 	<body style="margin: 0">
 		<canvas id="canvas" width="1000" height="500" style="border: 1px solid black"></canvas>
@@ -83,9 +83,10 @@
 
 				moveX() {
 					if (this.coeff < 200) {
-						this.x += 4
+						this.x += 3.5
 						this.coeff += 0.5
 					}
+				
 
 					return this
 				}
@@ -95,7 +96,7 @@
 				new Rect(-10, 20, 150, 20, '#00ffff'),
 				new Rect(-20, 250, 50, 20, '#00ffff'),
 				new Circle(-30, 368, 30, '#000000'),
-				new Circle(-65, 200, 0),
+				new Circle(-85, 200, 0),
 				new Rect(500, 0, 150, 550, '#700707')
 			]
 
